@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5697bc9f0db8e6f4fadd3eaa41389389, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  type: 1
+  name: Rifle
+  modelPrefab: {fileID: 4059801906033878232, guid: 7a5eb43a7d8b9a945af96dd60bed9c3b,
+    type: 3}
+  spawnPoint: {x: 0.318, y: 1.09, z: 0.43}
+  spawnRotation: {x: 0, y: 180, z: 0}
+  bulletSpawnPoint: {x: 0, y: 0.042, z: -0.493}
+  weaponAmmo: {fileID: 11400000, guid: 52e17370cc63cdd448cc8dcf66f1c6bd, type: 2}
+  weaponConfig: {fileID: 11400000, guid: 63e1d826c2ea32043bcc86ddf2b44f4d, type: 2}
+  bulletConfig: {fileID: 11400000, guid: a8041bfe7e38ff0449b3ca1a9a9a2671, type: 2}

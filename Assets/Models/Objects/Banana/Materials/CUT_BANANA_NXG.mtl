@@ -1,0 +1,13 @@
+# Blender MTL File: 'untitled.blend'
+# Material Count: 1
+
+newmtl mtl_127_105_5_46
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.496933 0.412543 0.019382
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd tex_0.WiiU_Textures.png
