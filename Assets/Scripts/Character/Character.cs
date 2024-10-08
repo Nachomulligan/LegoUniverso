@@ -19,6 +19,7 @@ public class WalkController : IMovementController
     private float jumpBuffer;
     private float jumpBufferCounter;
 
+    public AbilityTree abilityTree;
     public float JumpBufferCounter
     {
         get { return jumpBufferCounter; }
@@ -69,6 +70,17 @@ public class WalkController : IMovementController
         }
     }
 
+    // Método para ajustar la velocidad de movimiento
+    public void AdjustMovementSpeed(float newSpeed)
+    {
+        this.movementSpeed = newSpeed;
+    }
+
+    // Método para ajustar la fuerza de salto
+    public void AdjustJumpForce(float newJumpForce)
+    {
+        this.jumpForce = newJumpForce;
+    }
     private bool IsGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, groundRadius, groundLayer);
@@ -135,7 +147,6 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
     [SerializeField] private float groundRadius;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float jumpBuffer;
-    
     public float currentHealth;
 
     private IMovementController currentController;
@@ -144,6 +155,9 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
     private Rigidbody rb;
 
     private Collider[] interactables = new Collider[5];
+
+    // Referencia al árbol de habilidades
+    public AbilityTree abilityTree;
 
     private void Awake()
     {
@@ -162,27 +176,16 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
 
         var movement = new Vector3(horizontal, 0, vertical).normalized;
 
-        if (currentController is ClimbController)
-        {
-            movement = new Vector3(0, vertical, 0).normalized;
-        }
-
         currentController.Move(movement);
-
-        if (movement != Vector3.zero)
-        {         
-            Quaternion newRotation = Quaternion.LookRotation(movement);
-            transform.rotation = newRotation;
-
-            interactionPoint.rotation = newRotation;
-        }
-
         currentController.Jump();
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteract();
         }
+
+        // Aplicar habilidades desbloqueadas
+        ApplyUnlockedAbilities();
     }
 
     public void SetWalkState()
@@ -207,7 +210,7 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
 
     private void Die()
     {
-        GameManager.Instance.ChangeGameStatus(GameManager.GameStatus.Defeat, true);
+        // Implementación de derrota
     }
 
     private void TryInteract()
@@ -231,6 +234,29 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
             {
                 interactableComponent.Interact();
                 return;
+            }
+        }
+    }
+
+    // Aplicar efectos de habilidades desbloqueadas
+    private void ApplyUnlockedAbilities()
+    {
+        foreach (var habilidad in abilityTree.habilidades)
+        {
+            if (habilidad.Unlock)
+            {
+                if (habilidad is SpeedUp)
+                {
+                    walkController.AdjustMovementSpeed(habilidad.Modifier);
+                }
+                else if (habilidad is LifeUp)
+                {
+                    maxHealth += habilidad.Modifier;
+                }
+                else if (habilidad is HyperJump)
+                {
+                    walkController.AdjustJumpForce(habilidad.Modifier);
+                }
             }
         }
     }

@@ -39868,6 +39868,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1189760085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &735611653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735611655}
+  - component: {fileID: 735611654}
+  m_Layer: 0
+  m_Name: AbilitieTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &735611654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735611653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd7b25f3626b9e4390df72344b68a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  habilidades: []
+--- !u!4 &735611655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735611653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.22172742, y: -0, z: -0, w: 0.9751087}
+  m_LocalPosition: {x: -112.22, y: 35.77, z: -18.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738103242
 GameObject:
   m_ObjectHideFlags: 0
@@ -115933,6 +115978,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5895335026958332592, guid: 5d11af98104690d45833c2600041d8d4,
         type: 3}
+      propertyPath: abilityTree
+      value: 
+      objectReference: {fileID: 735611654}
+    - target: {fileID: 5895335026958332592, guid: 5d11af98104690d45833c2600041d8d4,
+        type: 3}
       propertyPath: interactionLayer.m_Bits
       value: 576
       objectReference: {fileID: 0}
@@ -116713,6 +116763,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 735611655}
   - {fileID: 316824683}
   - {fileID: 330585546}
   - {fileID: 410087041}
