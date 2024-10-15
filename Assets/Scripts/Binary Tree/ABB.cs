@@ -85,7 +85,7 @@ public class ABB : MonoBehaviour
     {
         if (nodo != null && index < spawnPoints.Length)
         {
-            Instantiate(nodo.prefab, spawnPoints[index].position, Quaternion.identity);
+            Instantiate(nodo.prefab, spawnPoints[index].position, Quaternion.Euler(0, 180, 0));
             index++;  
             yield return new WaitForSeconds(delay);
 
@@ -114,7 +114,7 @@ public class ABB : MonoBehaviour
                 yield return StartCoroutine(InstanciarInOrderCoroutine(nodo.hijoIzq, spawnPoints, delay, index));
             }
 
-            Instantiate(nodo.prefab, spawnPoints[index].position, Quaternion.identity);
+            Instantiate(nodo.prefab, spawnPoints[index].position, Quaternion.Euler(0, 180, 0));
             index++;
             yield return new WaitForSeconds(delay);
 
@@ -144,7 +144,7 @@ public class ABB : MonoBehaviour
             {
                 yield return StartCoroutine(InstanciarPostOrderCoroutine(nodo.hijoDer, spawnPoints, delay, index));
             }
-            Instantiate(nodo.prefab, spawnPoints[index].position, Quaternion.identity);
+            Instantiate(nodo.prefab, spawnPoints[index].position, Quaternion.Euler(0, 180, 0));
             index++;
             yield return new WaitForSeconds(delay);
         }
@@ -165,7 +165,7 @@ public class ABB : MonoBehaviour
             while (queue.Count > 0 && index < spawnPoints.Length)
             {
                 NodoABB current = queue.Dequeue();
-                Instantiate(current.prefab, spawnPoints[index].position, Quaternion.identity);
+                Instantiate(current.prefab, spawnPoints[index].position, Quaternion.Euler(0, 180, 0));
                 index++;
                 yield return new WaitForSeconds(delay);
 
