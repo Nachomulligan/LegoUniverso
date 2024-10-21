@@ -25,6 +25,11 @@ public class WalkController : IMovementController
         set { jumpBufferCounter = value; }
     }
 
+    public void SetMovementSpeed(float newSpeed)
+    {
+        movementSpeed = newSpeed;
+    }
+
     public WalkController(float movementSpeed, Transform transform, Rigidbody rb, float jumpForce, Transform groundCheck, LayerMask groundLayer, float groundRadius, float jumpBuffer)
     {
         this.movementSpeed = movementSpeed;
@@ -123,12 +128,15 @@ public interface IClimb
 
 public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
 {
-    [SerializeField] private float movementSpeed;
+    public float movementSpeed;
+    private bool canMove = true;
     [SerializeField] private Transform interactionPoint;
     public float interactionRadius;
     [SerializeField] private LayerMask interactionLayer;
     public float maxHealth;
-    [SerializeField] private MovementControllerConfig walkConfig;
+    public float currentHealth;
+    public bool godMode = false;
+    public MovementControllerConfig walkConfig;
     [SerializeField] private MovementControllerConfig climbConfig;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Transform groundCheck;
@@ -136,10 +144,9 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float jumpBuffer;
     
-    public float currentHealth;
 
     private IMovementController currentController;
-    private WalkController walkController;
+    public WalkController walkController;
     private ClimbController climbController;
     private Rigidbody rb;
 
@@ -157,34 +164,47 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
 
     public void Update()
     {
-        var horizontal = Input.GetAxisRaw("Horizontal");
-        var vertical = Input.GetAxisRaw("Vertical");
-
-        var movement = new Vector3(horizontal, 0, vertical).normalized;
-
-        if (currentController is ClimbController)
+        if (canMove)
         {
-            movement = new Vector3(0, vertical, 0).normalized;
-        }
+            var horizontal = Input.GetAxisRaw("Horizontal");
+            var vertical = Input.GetAxisRaw("Vertical");
 
-        currentController.Move(movement);
+            var movement = new Vector3(horizontal, 0, vertical).normalized;
 
-        if (movement != Vector3.zero)
-        {         
-            Quaternion newRotation = Quaternion.LookRotation(movement);
-            transform.rotation = newRotation;
+            if (currentController is ClimbController)
+            {
+                movement = new Vector3(0, vertical, 0).normalized;
+            }
 
-            interactionPoint.rotation = newRotation;
-        }
+            currentController.Move(movement);
 
-        currentController.Jump();
+            if (movement != Vector3.zero)
+            {
+                Quaternion newRotation = Quaternion.LookRotation(movement);
+                transform.rotation = newRotation;
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TryInteract();
+                interactionPoint.rotation = newRotation;
+            }
+
+            currentController.Jump();
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                TryInteract();
+            }
         }
     }
 
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+    }
+    
     public void SetWalkState()
     {
         currentController = walkController;
@@ -197,11 +217,18 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
+        if (!godMode)
         {
-            Die();
+            currentHealth -= damage;
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+        else
+        {
+            Debug.Log("Gay Mode activated, cannot take damage");
         }
     }
 

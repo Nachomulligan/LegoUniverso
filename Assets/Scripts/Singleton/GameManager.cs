@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("Menu");
                 break;
             case GameStatus.Gameplay:
-                if (loadScene) { SceneManager.LoadScene("Nivel 1"); }
+                if (loadScene) { SceneManager.LoadScene("Level 1"); }
                 ResumeGame();
                 break;
             case GameStatus.Pause:
