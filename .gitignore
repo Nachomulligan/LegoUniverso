@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Ignore Visual Studio configuration file
+.vsconfig
+
 # Gradle cache directory
 .gradle/
 
@@ -46,6 +49,9 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+
+# Ignore JetBrains IDEA project files
+.idea/
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -70,3 +76,4 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
