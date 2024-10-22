@@ -6,19 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="33a7b7ee-8476-49be-8b90-50c91c2500b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LegoUniverso/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LegoUniverso/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/CannonBullet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/CannonBullet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/MeleeBullet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/MeleeBullet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/NormalBullet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/NormalBullet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Dooku.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Dooku.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GamorreanEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GamorreanEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Minigame.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Minigame.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Bullet.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Strategy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Strategy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +28,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/Commands/SpawnWeaponCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/ConsoleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorator/IDeathLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ShootingBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.9/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/QuicksortEjemplo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -119,6 +114,7 @@
       <workItem from="1729543530956" duration="593000" />
       <workItem from="1729622455411" duration="264000" />
       <workItem from="1729622733925" duration="3779000" />
+      <workItem from="1729628213424" duration="7324000" />
     </task>
     <servers />
   </component>
