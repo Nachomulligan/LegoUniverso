@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 81bf8783d4ba2a244bba13f4a85e19b9,
         type: 3}
       propertyPath: m_Name
-      value: Dooku 1
+      value: Dooku
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 81bf8783d4ba2a244bba13f4a85e19b9,
         type: 3}
@@ -348,6 +348,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bf8783d4ba2a244bba13f4a85e19b9,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1378212810789573504}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bf8783d4ba2a244bba13f4a85e19b9,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6013332770454973172}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bf8783d4ba2a244bba13f4a85e19b9,
         type: 3}
@@ -434,7 +438,7 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 64
-  maxHealth: 10
+  godMode: 0
   walkConfig:
     movementSpeed: 10
   climbConfig:
@@ -446,6 +450,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jumpBuffer: 0.2
+--- !u!114 &1378212810789573504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956087823976646741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0b072e772ec2142a9f6dfc59bccfcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
 --- !u!114 &6013332770454973172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43216ad176d507e4cb281256bef5003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 2
+  currentWeapon: 4
   gunParent: {fileID: 7287496091556123375}
   guns:
   - {fileID: 11400000, guid: 94f3b473b77581247a6ea09def927a5e, type: 2}

@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour, IDamageable, IDeathLogic
 {
-    [SerializeField] private float maxHealth;
     public float speed = 5f;
     [SerializeField] private Transform target;
     [SerializeField] private LayerMask playerLayer;
     private bool isChasing = false;
 
-    private float currentHealth;
+    public HealthComponent healthComponent;
 
     private void Awake()
     {
-        currentHealth = maxHealth;
+        healthComponent = GetComponent<HealthComponent>();
     }
 
     private void Update()
@@ -26,14 +25,9 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public  void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        healthComponent.TakeDamage(damage);
     }
 
     public  void Die() 

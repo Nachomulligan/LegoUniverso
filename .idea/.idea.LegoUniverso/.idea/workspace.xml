@@ -5,48 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a7b7ee-8476-49be-8b90-50c91c2500b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel 1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel 1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LegoUniverso/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LegoUniverso/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/CannonBullet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/CannonBullet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/MeleeBullet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/MeleeBullet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/NormalBullet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BulletsSO/NormalBullet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Dooku.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Dooku.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GamorreanEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GamorreanEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Strategy/WeaponSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Strategy/WeaponSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar/CrowBar.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar/CrowBar.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar/Crowbar Shoot Config.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar/Crowbar Shoot Config.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar/Crowbar WeaponAmmo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Crowbar/Crowbar WeaponAmmo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun/Minigun Shoot Config.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun/Minigun Shoot Config.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun/Minigun WeaponAmmo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun/Minigun WeaponAmmo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun/Minigun.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Minigun/Minigun.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol/Pistol Shoot Config.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol/Pistol Shoot Config.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol/Pistol WeaponAmmo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol/Pistol WeaponAmmo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol/Pistol.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Pistol/Pistol.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle/Rifle Shoot Config.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle/Rifle Shoot Config.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle/Rifle WeaponAmmo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle/Rifle WeaponAmmo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle/Rifle.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Rifle/Rifle.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun/Shotgun Shoot Config.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun/Shotgun Shoot Config.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun/Shotgun WeaponAmmo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun/Shotgun WeaponAmmo.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun/Shotgun.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WeaponsSO/Shotgun/Shotgun.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Strategy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Strategy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +34,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/Commands/LoadLevelCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/Commands/SpawnWeaponCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/ConsoleManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Decorator/IDeathLogic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.9/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -144,6 +117,8 @@
       <workItem from="1729434707596" duration="14774000" />
       <workItem from="1729473067830" duration="30000" />
       <workItem from="1729543530956" duration="593000" />
+      <workItem from="1729622455411" duration="264000" />
+      <workItem from="1729622733925" duration="3779000" />
     </task>
     <servers />
   </component>

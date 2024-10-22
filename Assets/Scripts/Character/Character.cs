@@ -126,15 +126,13 @@ public interface IClimb
     void SetClimbState();
 }
 
-public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
+public class Character : MonoBehaviour, IDamageable, IWalk, IClimb, IDeathLogic
 {
     public float movementSpeed;
     private bool canMove = true;
     [SerializeField] private Transform interactionPoint;
     public float interactionRadius;
     [SerializeField] private LayerMask interactionLayer;
-    public float maxHealth;
-    public float currentHealth;
     public bool godMode = false;
     public MovementControllerConfig walkConfig;
     [SerializeField] private MovementControllerConfig climbConfig;
@@ -143,8 +141,8 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
     [SerializeField] private float groundRadius;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float jumpBuffer;
+    public HealthComponent healthComponent;
     
-
     private IMovementController currentController;
     public WalkController walkController;
     private ClimbController climbController;
@@ -155,9 +153,9 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        currentHealth = maxHealth;
         walkController = new WalkController(walkConfig.movementSpeed, transform, rb, jumpForce, groundCheck, groundLayer, groundRadius, jumpBuffer);
         climbController = new ClimbController(climbConfig.movementSpeed, transform);
+        healthComponent = GetComponent<HealthComponent>();
 
         currentController = walkController;
     }
@@ -219,12 +217,7 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
     {
         if (!godMode)
         {
-            currentHealth -= damage;
-
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
+            healthComponent.TakeDamage(damage);
         }
         else
         {
@@ -232,7 +225,7 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb
         }
     }
 
-    private void Die()
+    public void Die()
     {
         GameManager.Instance.ChangeGameStatus(GameManager.GameStatus.Defeat, true);
     }
