@@ -7,7 +7,7 @@ public class ShootingBehavior : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float fireRate = 1f;
     private float lastShootTime;
-    private IBulletFactory bulletFactory;
+    private BulletFactory bulletFactory;
 
     private void Awake()
     {

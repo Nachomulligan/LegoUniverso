@@ -26,7 +26,7 @@ public class WeaponScriptableObject : ScriptableObject
     private GameObject model;
     private float lastShootTime;
     private int currentAmmo = 0;
-    private IBulletFactory bulletFactory;
+    private BulletFactory bulletFactory;
 
     private void OnEnable()
     {
