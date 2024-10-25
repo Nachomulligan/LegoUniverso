@@ -26,12 +26,12 @@ public class WeaponScriptableObject : ScriptableObject
     private GameObject model;
     private float lastShootTime;
     private int currentAmmo = 0;
-    private ColaEnlazada bulletQueue;
+    private IBulletFactory bulletFactory;
 
     private void OnEnable()
     {
         currentAmmo = weaponAmmo.maxAmmo;
-        bulletQueue = new ColaEnlazada();
+        bulletFactory = new BulletFactory();
     }
 
     public void ReloadWeapon()
@@ -114,9 +114,7 @@ public class WeaponScriptableObject : ScriptableObject
     
         Vector3 spawnPosition = model.transform.TransformPoint(bulletSpawnPoint);
         
-        bulletQueue.Desacolar();
-        
-        GameObject bullet = Instantiate(bulletConfig.bulletPrefab, spawnPosition, Quaternion.LookRotation(shootDirection));
+        GameObject bullet = bulletFactory.CreateBullet(bulletConfig, spawnPosition, shootDirection);
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)

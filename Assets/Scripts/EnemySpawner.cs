@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab; // Prefab del enemigo a spawnear
-    [SerializeField] private float spawnInterval = 2f; // Intervalo entre spawns
-    [SerializeField] private BoxCollider spawnArea; // Área de spawn
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private BoxCollider spawnArea;
     private bool isSpawning = false;
 
-    private BossEnemy bossEnemy; // Referencia al jefe
-
+    private BossEnemy bossEnemy;
+    private EnemyFactory enemyFactory;
+    
     private void Start()
     {
         bossEnemy = FindObjectOfType<BossEnemy>();
         if (bossEnemy != null)
         {
-            bossEnemy.OnBossKilled += StopSpawning; // Suscribirse al evento
+            bossEnemy.OnBossKilled += StopSpawning;
         }
+        
+        enemyFactory = gameObject.AddComponent<EnemyFactory>();
+        enemyFactory.SetPrefab(enemyPrefab);
     }
 
     public void StartSpawning()
@@ -33,9 +37,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while (isSpawning)
         {
-            // Genera una posición aleatoria dentro del área de spawn
             Vector3 randomPosition = GetRandomPositionInArea();
-            Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+            enemyFactory.CreateEnemy(randomPosition, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnInterval);
         }
@@ -49,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
         float randomX = Random.Range(center.x - size.x / 2, center.x + size.x / 2);
         float randomZ = Random.Range(center.z - size.z / 2, center.z + size.z / 2);
 
-        return new Vector3(randomX, center.y, randomZ); // Mantener la misma altura
+        return new Vector3(randomX, center.y, randomZ);
     }
 
     public void StopSpawning()
@@ -59,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red; // Color del Gizmo
+        Gizmos.color = Color.red;
         Gizmos.DrawWireCube(spawnArea.transform.position, spawnArea.size);
     }
 }

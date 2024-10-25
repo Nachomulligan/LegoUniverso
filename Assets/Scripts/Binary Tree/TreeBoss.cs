@@ -24,9 +24,5 @@ public class TreeBoss : MonoBehaviour
         }
 
       arbol.InstanciarPreOrder(arbol.raiz, spawnPoints, delayBetweenSpawns);
-      //arbol.InstanciarInOrder(arbol.raiz, spawnPoints, delayBetweenSpawns);
-      //arbol.InstanciarPostOrder(arbol.raiz, spawnPoints, delayBetweenSpawns);
-      // arbol.InstanciarLevelOrder(arbol.raiz, spawnPoints, delayBetweenSpawns);
-   
     }
 }

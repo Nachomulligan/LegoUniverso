@@ -6,8 +6,6 @@ public class SpawnTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Object entered: {other.gameObject.name}, Layer: {LayerMask.LayerToName(other.gameObject.layer)}");
-
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
@@ -19,7 +17,7 @@ public class SpawnTrigger : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green; // Color del Gizmo
+        Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, GetComponent<BoxCollider>().size);
     }
 }

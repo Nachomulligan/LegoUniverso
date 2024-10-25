@@ -16,8 +16,7 @@ public class PetController : MonoBehaviour, IInteractable
     {
         transform.SetParent(character.transform);
         transform.localPosition = new Vector3(0, 2f, 0);
-
-        // Ignorar colisiones entre la mascota y el personaje
+        
         Collider petCollider = GetComponent<Collider>();
         Collider characterCollider = character.GetComponent<Collider>();
         if (petCollider != null && characterCollider != null)
