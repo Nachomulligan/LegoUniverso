@@ -8,8 +8,9 @@ public class ConsoleManager : MonoBehaviour
 {
     [SerializeField] private GameObject consoleUI;
     [SerializeField] private Character character;
+    [SerializeField] private PlayerAction playerAction;
     [SerializeField] private KeyCode toggleKey = KeyCode.Backslash;
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(toggleKey))
@@ -26,10 +27,12 @@ public class ConsoleManager : MonoBehaviour
         if (!isActive)
         {
             character.DisableMovement();
+            playerAction.DisableShooting();
         }
         else
         {
             character.EnableMovement();
+            playerAction.EnbaleShooting();
         }
     }
 }

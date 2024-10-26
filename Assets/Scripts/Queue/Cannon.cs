@@ -10,7 +10,7 @@ public class Cannon : MonoBehaviour
     private ColaEnlazada bulletQueue = new ColaEnlazada();
     [SerializeField] private float fireRate = 5f;
     private bool isFiring = false;
-    [SerializeField] private float bulletSpeed = 20f;
+    [SerializeField] private float bulletSpeed = 40f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -59,14 +59,14 @@ public class Cannon : MonoBehaviour
                 Debug.Log("Bullet removed from queue: " + bullet.name);
 
                 bullet.transform.SetParent(null);
-
+                
                 bullet.transform.position = firePoint.position;
 
                 Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
                 if (bulletRb != null && targetPoint != null)
                 {
                     Vector3 direction = (targetPoint.position - bullet.transform.position).normalized;
-                    
+
                     bulletRb.velocity = direction * bulletSpeed;
                 }
             }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,11 +8,26 @@ public class Spawner : MonoBehaviour, IInteractable
 {
     public InteractPriority InteractPriority => InteractPriority.Low;
 
-    [SerializeField] private GameObject go;
+    [SerializeField] private BulletConfiguration bulletConfig;
     [SerializeField] private Transform spawnPoint;
     
+    private BulletFactory bulletFactory;
+
+    private void Awake()
+    {
+        bulletFactory = new BulletFactory();
+        bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
+    }
+
     public void Interact()
     {
-        Instantiate(go, spawnPoint.position, spawnPoint.rotation);
+        Vector3 direction = spawnPoint.forward;
+        GameObject bullet = bulletFactory.CreateBullet(bulletConfig, spawnPoint.position, direction);
+        bullet.transform.SetParent(null);
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+        if (bulletRb != null)
+        {
+            bulletRb.velocity = Vector3.zero;
+        }
     }
 }

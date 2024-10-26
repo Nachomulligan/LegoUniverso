@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public Character character;
     private StateMachine stateMachine = new StateMachine();
     private static GameManager instance;
 

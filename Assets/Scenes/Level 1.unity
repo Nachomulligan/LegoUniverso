@@ -443,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 2499211201170121554, guid: 0710c6faa73e73b40abcf4bd73b5b67b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2499211201170121554, guid: 0710c6faa73e73b40abcf4bd73b5b67b,
         type: 3}
@@ -951,7 +951,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22172742, y: -0, z: -0, w: 0.9751087}
-  m_LocalPosition: {x: -112.22, y: 35.77, z: -18.28}
+  m_LocalPosition: {x: -18.6, y: 12.8, z: -18.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1444,7 +1444,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d6066633ddb3216489599b9d9aa8429b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.658429
+      value: -5.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6066633ddb3216489599b9d9aa8429b,
         type: 3}
@@ -1577,13 +1577,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505088919}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.00000013411044, y: 0.0000001657754, z: -0.92278373, w: -0.38531843}
   m_LocalPosition: {x: -0, y: 7.8, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 126656196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -225.327}
 --- !u!1 &513613980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca49bb0b9d337514ab63547198a92ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 1800830174536696679, guid: 14150642899853d4198d01ba3a3edef7, type: 3}
+  bulletConfig: {fileID: 11400000, guid: bfd726d38b33f144c97ccac12e737b79, type: 2}
   spawnPoint: {fileID: 1275108561}
 --- !u!4 &643977908 stripped
 Transform:
@@ -5543,6 +5543,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c40832f2545604fb986febec0dcf99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1568079747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2437050785063043902, guid: 5d11af98104690d45833c2600041d8d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 229132655447441766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519aa8041f5972c4d9275bc397aa055d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1589811158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5906,7 +5918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1678957648
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7442,12 +7454,12 @@ PrefabInstance:
     - target: {fileID: 7287496091556123375, guid: 5d11af98104690d45833c2600041d8d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -112.091
+      value: -18.471
       objectReference: {fileID: 0}
     - target: {fileID: 7287496091556123375, guid: 5d11af98104690d45833c2600041d8d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.71
+      value: 5.739998
       objectReference: {fileID: 0}
     - target: {fileID: 7287496091556123375, guid: 5d11af98104690d45833c2600041d8d4,
         type: 3}
@@ -7577,6 +7589,11 @@ PrefabInstance:
       propertyPath: consoleUI
       value: 
       objectReference: {fileID: 399296470}
+    - target: {fileID: 7845310308623269894, guid: 0be45de3111a7ae49aaa7418d26cc80a,
+        type: 3}
+      propertyPath: playerAction
+      value: 
+      objectReference: {fileID: 1568079747}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7826,7 +7843,7 @@ PrefabInstance:
     - target: {fileID: 7919431531911163317, guid: 7717ced76a6539246a40d88307d9b944,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.64
+      value: -23.9
       objectReference: {fileID: 0}
     - target: {fileID: 7919431531911163317, guid: 7717ced76a6539246a40d88307d9b944,
         type: 3}

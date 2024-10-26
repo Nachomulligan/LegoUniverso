@@ -8,18 +8,20 @@ public class PlayerAction : MonoBehaviour
 {
     [SerializeField] private PlayerWeaponSelector weaponSelector;
     [SerializeField] private KeyCode shootKey = KeyCode.P;
+    public bool canShoot = true;
+    
     private void Update()
     {
         if (weaponSelector.activeGun != null)
         {
             var fireMode = weaponSelector.activeGun.weaponConfig.fireMode;
             
-            if (Input.GetKeyDown(shootKey) || (Input.GetKey(shootKey) && fireMode == WeaponConfiguration.FireMode.Auto))
+            if (Input.GetKeyDown(shootKey) && canShoot || (Input.GetKey(shootKey) && fireMode == WeaponConfiguration.FireMode.Auto) && canShoot)
             {
                 HandleShooting();
             }
             
-            //Dejar dentro de null para que no tire error
+            //Dejar dentro de null porque si no tira error
             if (!weaponSelector.activeGun.HasAmmo() && weaponSelector.activeGun.type != GunType.Crowbar)
             {
                 weaponSelector.UnequipWeapon();
@@ -38,5 +40,15 @@ public class PlayerAction : MonoBehaviour
         {
             weaponSelector.activeGun.Shoot();
         }
+    }
+
+    public void EnbaleShooting()
+    {
+        canShoot = true;
+    }
+
+    public void DisableShooting()
+    {
+        canShoot = false;
     }
 }

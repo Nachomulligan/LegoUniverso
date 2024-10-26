@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CannonBullet
   m_EditorClassIdentifier: 
   dmg: 10
-  speed: 100
+  speed: 0
   maxLifetime: 999
   bulletPrefab: {fileID: 1800830174536696679, guid: 14150642899853d4198d01ba3a3edef7,
     type: 3}
