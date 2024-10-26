@@ -227,7 +227,7 @@ public class Character : MonoBehaviour, IDamageable, IWalk, IClimb, IDeathLogic
 
     public void Die()
     {
-        GameManager.Instance.ChangeGameStatus(GameManager.GameStatus.Defeat, true);
+        GameManager.Instance.ChangeGameStatus(new DefeatState(), true);
     }
 
     private void TryInteract()

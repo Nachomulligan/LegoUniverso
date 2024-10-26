@@ -5,20 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenu;
-    
-    public enum GameStatus
-    {
-        Menu,
-        Gameplay,
-        Pause,
-        Puzzle,
-        Victory,
-        Defeat
-    }
-
+    public GameObject pauseMenu;
+    private StateMachine stateMachine = new StateMachine();
     private static GameManager instance;
-    private string currentScene;
 
     public static GameManager Instance
     {
@@ -33,18 +22,17 @@ public class GameManager : MonoBehaviour
                     instance = managerObject.AddComponent<GameManager>();
                 }
             }
-
             return instance;
         }
     }
-    
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            currentScene = SceneManager.GetActiveScene().name;
+            ChangeGameStatus(new MainMenuState(), true);
         }
         else if (instance != this)
         {
@@ -52,75 +40,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public GameStatus CurrentGameStatus { get; private set; } = GameStatus.Menu;
-    
     private void Update()
     {
-        switch (CurrentGameStatus)
-        {
-            case GameStatus.Menu:
-                if (Input.GetKeyDown(KeyCode.Space)) { ChangeGameStatus(GameStatus.Gameplay, true); }
-                break;
-            case GameStatus.Gameplay:
-                if (Input.GetKeyDown(KeyCode.Escape)) { ChangeGameStatus(GameStatus.Pause, false); }
-                break;
-            case GameStatus.Pause:
-                if (Input.GetKeyDown(KeyCode.Escape)) { ChangeGameStatus(GameStatus.Gameplay, false); }
-                break;
-            case GameStatus.Puzzle:
-                if (Input.GetKeyDown(KeyCode.E)) { ChangeGameStatus(GameStatus.Gameplay, false); }
-                break;
-            case GameStatus.Victory:
-                if (Input.GetKeyDown(KeyCode.R)) { ChangeGameStatus(GameStatus.Menu, true); }
-                break;
-            case GameStatus.Defeat:
-                if (Input.GetKeyDown(KeyCode.R)) { ChangeGameStatus(GameStatus.Menu, true); }
-                break;
-        }
+        stateMachine.Update(this);
     }
-    
-    public void ChangeGameStatus(GameStatus newStatus, bool loadScene)
+
+    public void ChangeGameStatus(GameState newStatus, bool loadScene)
     {
-        CurrentGameStatus = newStatus;
+        stateMachine.ChangeState(newStatus, this);
 
-        switch (newStatus)
+        if (loadScene)
         {
-            case GameStatus.Menu:
+            if (newStatus is MainMenuState)
+            {
                 SceneManager.LoadScene("Menu");
-                break;
-            case GameStatus.Gameplay:
-                if (loadScene) { SceneManager.LoadScene("Level 1"); }
-                ResumeGame();
-                break;
-            case GameStatus.Pause:
-                PauseGame();
-                break;
-            case GameStatus.Puzzle:
-                Time.timeScale = 0f;
-                break;
-            case GameStatus.Victory:
-                SceneManager.LoadScene("VictoryScene");
-                break;
-            case GameStatus.Defeat:
-                SceneManager.LoadScene("DefeatScene");
-                break;
+            }
+            else if (newStatus is GameplayState) SceneManager.LoadScene("Level 1");
+            else if (newStatus is VictoryState) SceneManager.LoadScene("VictoryScene");
+            else if (newStatus is DefeatState) SceneManager.LoadScene("DefeatScene");
         }
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
     }
-    
+
     public void CompletePuzzle()
     {
-        ChangeGameStatus(GameStatus.Gameplay, false);
+        ChangeGameStatus(new GameplayState(), false);
     }
 }

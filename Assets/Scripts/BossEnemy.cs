@@ -29,7 +29,7 @@ public class BossEnemy : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
         OnBossKilled?.Invoke();
-        GameManager.Instance.ChangeGameStatus(GameManager.GameStatus.Victory, true);
+        GameManager.Instance.ChangeGameStatus(new VictoryState(), true);
     }
 
 }

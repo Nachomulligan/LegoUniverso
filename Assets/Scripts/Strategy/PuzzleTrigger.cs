@@ -38,7 +38,7 @@ public class PuzzleTrigger : MonoBehaviour, IInteractable
     {
         puzzle.SetActive(true);
         minijuegoCanvas.gameObject.SetActive(true);
-        GameManager.Instance.ChangeGameStatus(GameManager.GameStatus.Puzzle, false);
+        GameManager.Instance.ChangeGameStatus(new PuzzleState(), false);
         isPuzzleActive = true;
     }
 
