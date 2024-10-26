@@ -32,6 +32,7 @@ public class WeaponScriptableObject : ScriptableObject
     {
         currentAmmo = weaponAmmo.maxAmmo;
         bulletFactory = new BulletFactory();
+        bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
     }
 
     public void ReloadWeapon()
@@ -116,13 +117,6 @@ public class WeaponScriptableObject : ScriptableObject
         
         GameObject bullet = bulletFactory.CreateBullet(bulletConfig, spawnPosition, shootDirection);
 
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
-        {
-            bulletScript.bulletConfig = bulletConfig;
-            bulletScript.SetDirection(shootDirection);
-        }
-
         activeMonoBehaviour.StartCoroutine(DestroyBulletAfterTime(bullet, bulletConfig.maxLifetime));
     }
 
@@ -132,7 +126,8 @@ public class WeaponScriptableObject : ScriptableObject
     
         if (bullet != null)
         {
-            bullet.SetActive(false);
+            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            bulletFactory.ReturnToPool(bulletComponent);
         }
     }
 

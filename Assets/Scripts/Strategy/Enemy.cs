@@ -30,9 +30,13 @@ public class Enemy : MonoBehaviour, IDamageable, IDeathLogic
         healthComponent.TakeDamage(damage);
     }
 
-    public  void Die() 
+    public  void Die()
     {
-        Destroy(gameObject);
+        EnemyFactory enemyFactory = FindObjectOfType<EnemyFactory>();
+        if (enemyFactory != null)
+        {
+            enemyFactory.ReturnToPool(this);
+        }
     }
 
     private void Move()

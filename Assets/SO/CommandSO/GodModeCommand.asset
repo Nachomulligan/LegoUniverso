@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6622bb400c199704b8d1009a064317c9, type: 3}
   m_Name: GodModeCommand
   m_EditorClassIdentifier: 
-  commandName: godmode
+  commandName: gaymode

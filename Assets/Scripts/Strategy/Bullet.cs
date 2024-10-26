@@ -9,15 +9,18 @@ public class Bullet : MonoBehaviour
     public BulletConfiguration bulletConfig;
     
     private Vector3 direction;
-
+    private BulletFactory bulletFactory;
+    
+    public void Initialize(BulletConfiguration config, BulletFactory factory, Vector3 direction)
+    {
+        bulletConfig = config;
+        bulletFactory = factory;
+        SetDirection(direction);
+    }
+    
     public void SetDirection(Vector3 newDirection)
     {
         direction = newDirection;
-    }
-
-    private void Start()
-    {
-        Destroy(gameObject, bulletConfig.maxLifetime);
     }
 
     private void Update()
@@ -38,7 +41,7 @@ public class Bullet : MonoBehaviour
         
         if (bulletConfig.destroyOnContact)
         {
-            Destroy(gameObject);
+            bulletFactory.ReturnToPool(this);
         }
     }
 }

@@ -12,6 +12,7 @@ public class ShootingBehavior : MonoBehaviour
     private void Awake()
     {
         bulletFactory = new BulletFactory();
+        bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
     }
     
     public void Shoot(Vector3 direction)

@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour, IEnemyFactory
 {
-    private GameObject enemyPrefab;
+    [SerializeField] private Enemy enemyPrefab;
+    private ObjectPool<Enemy> enemyPool;
 
-    public EnemyFactory(GameObject prefab)
+    private void Awake()
     {
-        enemyPrefab = prefab;
+        enemyPool = new ObjectPool<Enemy>(enemyPrefab);
+    }
+
+    public void Initialize(Enemy enemyPrefab)
+    {
+        this.enemyPrefab = enemyPrefab;
+        enemyPool = new ObjectPool<Enemy>(enemyPrefab);
     }
     
-    public void SetPrefab(GameObject prefab)
-    {
-        enemyPrefab = prefab;
-    }
-
     public GameObject CreateEnemy(Vector3 position, Quaternion rotation)
     {
-        return Instantiate(enemyPrefab, position, rotation);
+        Enemy enemy = enemyPool.GetFromPool(position, rotation);
+        enemy.healthComponent.HealToMax();
+        return enemy.gameObject;
+    }
+
+    public void ReturnToPool(Enemy enemy)
+    {
+        enemyPool.ReturnToPool(enemy);
     }
 }
