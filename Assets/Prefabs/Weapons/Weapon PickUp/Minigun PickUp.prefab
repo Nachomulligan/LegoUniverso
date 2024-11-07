@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponToPickUp: {fileID: 11400000, guid: dc1f68e2879c98740915383d7d5f5444, type: 2}
+  interactionSound: 5
 --- !u!1 &3568576189913991295
 GameObject:
   m_ObjectHideFlags: 0

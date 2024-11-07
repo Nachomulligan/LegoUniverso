@@ -450,6 +450,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jumpBuffer: 0.2
+  godModeImage: {fileID: 21300000, guid: 930b74797db777e49a7471481515c018, type: 3}
+  healthComponent: {fileID: 0}
+  dmgSound: 9
 --- !u!114 &1378212810789573504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +486,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8c5d3af47283ba47a0d5825775fe7d1, type: 2}
   - {fileID: 11400000, guid: dc1f68e2879c98740915383d7d5f5444, type: 2}
   - {fileID: 11400000, guid: 481e610261062504a9aa8b4bb57cecaa, type: 2}
+  destroyCooldown: 0.2
   activeGun: {fileID: 0}
 --- !u!114 &2437050785063043902
 MonoBehaviour:
@@ -498,3 +502,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSelector: {fileID: 6013332770454973172}
   shootKey: 112
+  canShoot: 1

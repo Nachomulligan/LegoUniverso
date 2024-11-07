@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 81.82, y: 81.82, z: 81.82}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2919190240813942191}
@@ -51,7 +51,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 0.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7262090039081360262
 GameObject:
@@ -321,6 +321,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   shootingBehavior: {fileID: 28687391914681741}
+  interactionSound: 7
 --- !u!114 &28687391914681741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   bulletConfig: {fileID: 11400000, guid: a8041bfe7e38ff0449b3ca1a9a9a2671, type: 2}
   shootPoint: {fileID: 5862503540569428308}
   fireRate: 1
+  shootSound: 0
 --- !u!4 &2919190240813942191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 309a80bb09ae87949bef9429221b5620,

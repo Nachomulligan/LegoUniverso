@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletFactory : MonoBehaviour, IBulletFactory
+public class BulletFactory : IBulletFactory
 {
     private BulletPool bulletPool;
     

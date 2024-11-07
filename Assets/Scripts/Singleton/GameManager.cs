@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public Character character;
     private StateMachine stateMachine = new StateMachine();
     private static GameManager instance;
+
+    public AudioManager audioManager;
 
     public static GameManager Instance
     {
@@ -39,6 +40,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        audioManager = FindObjectOfType<AudioManager>();
+        
+        if (audioManager == null)
+        {
+            GameObject audioManagerObject = new GameObject("AudioManager");
+            audioManager = audioManagerObject.AddComponent<AudioManager>();
+        }
     }
 
     private void Update()
@@ -55,10 +64,23 @@ public class GameManager : MonoBehaviour
             if (newStatus is MainMenuState)
             {
                 SceneManager.LoadScene("Menu");
+                audioManager.PlayBGM(0);
             }
-            else if (newStatus is GameplayState) SceneManager.LoadScene("Level 1");
-            else if (newStatus is VictoryState) SceneManager.LoadScene("VictoryScene");
-            else if (newStatus is DefeatState) SceneManager.LoadScene("DefeatScene");
+            else if (newStatus is GameplayState)
+            {
+                SceneManager.LoadScene("Level 1");
+                audioManager.PlayBGM(1);
+            }
+            else if (newStatus is VictoryState)
+            {
+                SceneManager.LoadScene("VictoryScene");
+                audioManager.PlayBGM(2);
+            }
+            else if (newStatus is DefeatState)
+            {
+                SceneManager.LoadScene("DefeatScene");
+                audioManager.PlayBGM(3);
+            }
         }
     }
 

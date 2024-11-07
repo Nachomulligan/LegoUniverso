@@ -8,6 +8,22 @@ public class WeaponSpawner : MonoBehaviour, IInteractable
 
     [SerializeField] private GameObject[] weapons;
     [SerializeField] private Transform spawnPoint;
+    
+    [SerializeField] private int interactionSound;
+    private AudioManager audioManager;
+    
+    private void Awake()
+    {
+        audioManager = GameManager.Instance.audioManager;
+    }
+    
+    private void PlayInteractionSound()
+    {
+        if (interactionSound >= 0 && interactionSound < audioManager.soundEffects.Count)
+        {
+            audioManager.PlaySFX(interactionSound);
+        }
+    }
 
     public void Interact()
     {
@@ -16,6 +32,7 @@ public class WeaponSpawner : MonoBehaviour, IInteractable
             int randomIndex = Random.Range(0, weapons.Length);
             GameObject randomWeapon = weapons[randomIndex];
             
+            PlayInteractionSound();
             Instantiate(randomWeapon, spawnPoint.position, spawnPoint.rotation);
             
             Destroy(gameObject);

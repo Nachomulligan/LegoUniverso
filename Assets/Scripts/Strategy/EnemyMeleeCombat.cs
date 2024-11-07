@@ -15,10 +15,14 @@ public class EnemyMeleeCombat : MonoBehaviour
     private bool canAttack = true;
 
     private Collider[] playerInRange = new Collider[1];
+    
+    [SerializeField] private int attackSound;
+    private AudioManager audioManager;
 
     private void Start()
     {
         enemy = GetComponent<Enemy>();
+        audioManager = GameManager.Instance.audioManager;
     }
     
     private void Update()
@@ -43,6 +47,14 @@ public class EnemyMeleeCombat : MonoBehaviour
         }
     }
     
+    private void PlayAttackSound()
+    {
+        if (attackSound >= 0 && attackSound < audioManager.soundEffects.Count)
+        {
+            audioManager.PlaySFX(attackSound);
+        }
+    }
+    
     private bool IsPlayerInRange()
     {
         return Physics.OverlapSphereNonAlloc(combatPoint.position, attackRadius, playerInRange, playerLayer) > 0;
@@ -61,6 +73,7 @@ public class EnemyMeleeCombat : MonoBehaviour
             if (damageable != null)
             {
                 damageable.TakeDamage(attackDamage);
+                PlayAttackSound();
             }
         }
         

@@ -8,10 +8,22 @@ public class WeaponPickUp : MonoBehaviour, IInteractable
 
     [SerializeField] private WeaponScriptableObject weaponToPickUp;
     private PlayerWeaponSelector playerWeaponSelector;
+    
+    [SerializeField] private int interactionSound;
+    private AudioManager audioManager;
 
     private void Start()
     {
         playerWeaponSelector = FindObjectOfType<PlayerWeaponSelector>();
+        audioManager = GameManager.Instance.audioManager;
+    }
+    
+    private void PlayInteractionSound()
+    {
+        if (interactionSound >= 0 && interactionSound < audioManager.soundEffects.Count)
+        {
+            audioManager.PlaySFX(interactionSound);
+        }
     }
     
     public void Interact()
@@ -19,6 +31,7 @@ public class WeaponPickUp : MonoBehaviour, IInteractable
         if (playerWeaponSelector.activeGun != null && playerWeaponSelector.activeGun.type == GunType.Crowbar)
         {
             playerWeaponSelector.EquipWeapon(weaponToPickUp);
+            PlayInteractionSound();
             Destroy(gameObject);
         }
         else

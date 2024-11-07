@@ -369,6 +369,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   healthComponent: {fileID: 6679890013672530010}
+  dmgSound: 3
 --- !u!114 &6679890013672530010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +402,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  attackSound: 8
 --- !u!4 &2134541066813610423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b774ec964b8c2d14184cac218648f929,

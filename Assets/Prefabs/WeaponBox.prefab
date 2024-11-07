@@ -194,6 +194,7 @@ MonoBehaviour:
   - {fileID: 7712045811235393006, guid: 680c0d327ebd64447898f3c5a967c3c8, type: 3}
   - {fileID: 3753395136243746794, guid: 1e45ddfd229977f40b1ea052656a0b30, type: 3}
   spawnPoint: {fileID: 1191192018685973494}
+  interactionSound: 2
 --- !u!23 &427424935293645778
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -271,3 +272,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons: []
   spawnPoint: {fileID: 0}
+  interactionSound: 0

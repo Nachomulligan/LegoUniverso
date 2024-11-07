@@ -22,3 +22,4 @@ MonoBehaviour:
   weaponAmmo: {fileID: 11400000, guid: e68f2c784b402cf41b47211c7a342c15, type: 2}
   weaponConfig: {fileID: 11400000, guid: a0f3ebea92ec96a42aa418c635729353, type: 2}
   bulletConfig: {fileID: 11400000, guid: 01adef0225a7ca9439199683f1d499e1, type: 2}
+  audioConfig: {fileID: 11400000, guid: 6137fa1947b831d428a03b51d38dbdcd, type: 2}

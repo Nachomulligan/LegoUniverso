@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
         bulletConfig = config;
         bulletFactory = factory;
         SetDirection(direction);
+        StartCoroutine(DestroyBulletAfterTime(bulletConfig.maxLifetime));
     }
     
     public void SetDirection(Vector3 newDirection)
@@ -43,5 +44,11 @@ public class Bullet : MonoBehaviour
         {
             bulletFactory.ReturnToPool(this);
         }
+    }
+    
+    private IEnumerator DestroyBulletAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        bulletFactory.ReturnToPool(this);
     }
 }

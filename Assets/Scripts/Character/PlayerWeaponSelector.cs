@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using WaitForSeconds = UnityEngine.WaitForSeconds;
 
 [DisallowMultipleComponent]
 public class PlayerWeaponSelector : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerWeaponSelector : MonoBehaviour
     [SerializeField] private GunType currentWeapon = GunType.Crowbar;
     [SerializeField] private Transform gunParent;
     [SerializeField] private List<WeaponScriptableObject> guns;
+    [SerializeField] private float destroyCooldown = 0.2f;
 
     [Space]
     [Header("Runtime Filled")] 
@@ -39,9 +41,16 @@ public class PlayerWeaponSelector : MonoBehaviour
     {
         if (activeGun != null)
         {
-            activeGun.RemoveWeapon();
-            EquipCrowbar();
+            StartCoroutine(UnequipAfterDelay());
         }
+    }
+
+    private IEnumerator UnequipAfterDelay()
+    {
+        yield return new WaitForSeconds(destroyCooldown);
+        
+        activeGun.RemoveWeapon();
+        EquipCrowbar();
     }
 
     public void EquipWeapon(WeaponScriptableObject newWeapon)

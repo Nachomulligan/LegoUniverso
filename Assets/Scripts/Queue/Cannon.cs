@@ -11,7 +11,15 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float fireRate = 5f;
     private bool isFiring = false;
     [SerializeField] private float bulletSpeed = 40f;
-
+    
+    [SerializeField] private int shootSound;
+    private AudioManager audioManager;
+    
+    private void Awake()
+    {
+        audioManager = GameManager.Instance.audioManager; 
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Item>(out Item item))
@@ -44,7 +52,15 @@ public class Cannon : MonoBehaviour
 
         isFiring = false;
     }
-
+    
+    private void PlayShootSound()
+    {
+        if (shootSound >= 0 && shootSound < audioManager.soundEffects.Count)
+        {
+            audioManager.PlaySFX(shootSound);
+        }
+    }
+    
     private void Fire()
     {
         if (!bulletQueue.ColaVacia())
@@ -66,8 +82,8 @@ public class Cannon : MonoBehaviour
                 if (bulletRb != null && targetPoint != null)
                 {
                     Vector3 direction = (targetPoint.position - bullet.transform.position).normalized;
-
                     bulletRb.velocity = direction * bulletSpeed;
+                    PlayShootSound();
                 }
             }
         }

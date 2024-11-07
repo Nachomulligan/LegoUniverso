@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e83f0dbafea8dcd4896386cbcccada9a,
         type: 3}
       propertyPath: m_Name
-      value: Pistol PickUp 1
+      value: Pistol PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e83f0dbafea8dcd4896386cbcccada9a,
         type: 3}
@@ -125,11 +125,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e83f0dbafea8dcd4896386cbcccada9a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1197377004621761115}
+      addedObject: {fileID: 3902064478132301447}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e83f0dbafea8dcd4896386cbcccada9a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3902064478132301447}
+      addedObject: {fileID: 1197377004621761115}
   m_SourcePrefab: {fileID: 100100000, guid: e83f0dbafea8dcd4896386cbcccada9a, type: 3}
 --- !u!4 &2600201416423555563 stripped
 Transform:
@@ -143,19 +143,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2566906738315470336}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1197377004621761115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413189507486620497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca58f373d151e164c854d55b3ca0d593, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponToPickUp: {fileID: 11400000, guid: 94f3b473b77581247a6ea09def927a5e, type: 2}
 --- !u!136 &3902064478132301447
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -179,3 +166,17 @@ CapsuleCollider:
   m_Height: 0.28590155
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1197377004621761115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413189507486620497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca58f373d151e164c854d55b3ca0d593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponToPickUp: {fileID: 11400000, guid: 94f3b473b77581247a6ea09def927a5e, type: 2}
+  interactionSound: 5

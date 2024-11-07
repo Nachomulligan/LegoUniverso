@@ -21,12 +21,14 @@ public class WeaponScriptableObject : ScriptableObject
 
     public WeaponConfiguration weaponConfig;
     public BulletConfiguration bulletConfig;
+    public AudioConfigWeapon audioConfig;
     
     private MonoBehaviour activeMonoBehaviour;
     private GameObject model;
     private float lastShootTime;
     private int currentAmmo = 0;
     private BulletFactory bulletFactory;
+    private AudioSource audioSource;
 
     private void OnEnable()
     {
@@ -58,6 +60,8 @@ public class WeaponScriptableObject : ScriptableObject
         model.transform.SetParent(parent, false);
         model.transform.localPosition = spawnPoint;
         model.transform.localRotation = Quaternion.Euler(spawnRotation);
+
+        audioSource = model.AddComponent<AudioSource>();
     }
 
     public void Shoot()
@@ -105,7 +109,9 @@ public class WeaponScriptableObject : ScriptableObject
     private void FireBullet()
     {
         currentAmmo -= weaponAmmo.ammoSpentPerShot;
-
+        
+        audioConfig.PlayShootingSound(audioSource);
+        
         Vector3 shootDirection = -model.transform.forward + new Vector3(
             Random.Range(-weaponConfig.spread.x, weaponConfig.spread.x),
             Random.Range(-weaponConfig.spread.y, weaponConfig.spread.y),
@@ -116,21 +122,8 @@ public class WeaponScriptableObject : ScriptableObject
         Vector3 spawnPosition = model.transform.TransformPoint(bulletSpawnPoint);
         
         GameObject bullet = bulletFactory.CreateBullet(bulletConfig, spawnPosition, shootDirection);
-
-        activeMonoBehaviour.StartCoroutine(DestroyBulletAfterTime(bullet, bulletConfig.maxLifetime));
     }
-
-    private IEnumerator DestroyBulletAfterTime(GameObject bullet, float time)
-    {
-        yield return new WaitForSeconds(time);
     
-        if (bullet != null)
-        {
-            Bullet bulletComponent = bullet.GetComponent<Bullet>();
-            bulletFactory.ReturnToPool(bulletComponent);
-        }
-    }
-
     private IEnumerator BurstFire()
     {
         for (int i = 0; i < weaponConfig.burstBulletCount; i++)

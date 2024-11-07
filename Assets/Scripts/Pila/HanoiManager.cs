@@ -14,7 +14,7 @@ public class HanoiManager : MonoBehaviour
 
     public event Action OnVictory;
 
-    void Start()
+    private void Start()
     {
         pilas = new PilaTDA[3];
         for (int i = 0; i < 3; i++)
@@ -32,7 +32,7 @@ public class HanoiManager : MonoBehaviour
         SeleccionarTorreOrigen();
     }
 
-    void MostrarEstadoTorres()
+    private void MostrarEstadoTorres()
     {
         Debug.Log("Estado de las torres:");
         for (int i = 0; i < 3; i++)
@@ -41,22 +41,22 @@ public class HanoiManager : MonoBehaviour
         }
     }
 
-    string ObtenerEstadoTorre(PilaTDA pila)
+    private string ObtenerEstadoTorre(PilaTDA pila)
     {
         return pila.PilaVacia() ? "Vacía" : pila.Tope().ToString();
     }
 
-    void SeleccionarTorreOrigen()
+    private void SeleccionarTorreOrigen()
     {
         Debug.Log("Seleccione la torre de la cual desea mover un disco (1, 2, 3):");
     }
 
-    void SeleccionarTorreDestino(int origen)
+    private void SeleccionarTorreDestino(int origen)
     {
         Debug.Log($"Torre {origen + 1} seleccionada. ¿A qué torre desea mover el disco? (1, 2, 3):");
     }
 
-    void MoverDisco(int origen, int destino)
+    private void MoverDisco(int origen, int destino)
     {
         PilaTDA torreOrigen = pilas[origen];
         PilaTDA torreDestino = pilas[destino];
@@ -86,7 +86,7 @@ public class HanoiManager : MonoBehaviour
         SeleccionarTorreOrigen();
     }
 
-    void ActualizarPosicionesDiscos(int torre)
+    private void ActualizarPosicionesDiscos(int torre)
     {
         PilaTDA pila = pilas[torre];
         
@@ -103,7 +103,7 @@ public class HanoiManager : MonoBehaviour
         }
     }
 
-    void VerificarVictoria()
+    private void VerificarVictoria()
     {
         PilaTDA torre3 = pilas[2];
         
@@ -140,7 +140,7 @@ public class HanoiManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -160,7 +160,7 @@ public class HanoiManager : MonoBehaviour
         }
     }
 
-    void ManejarInput(int seleccion)
+    private void ManejarInput(int seleccion)
     {
         seleccion -= 1;
 
@@ -184,7 +184,7 @@ public class HanoiManager : MonoBehaviour
         }
     }
 
-    void ResolverPuzzle(int n, int origen, int destino, int auxiliar)
+    private void ResolverPuzzle(int n, int origen, int destino, int auxiliar)
     {
         if (n <= 0)
             return;

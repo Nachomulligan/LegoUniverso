@@ -7,9 +7,8 @@ public class AudioConfigWeapon : ScriptableObject
 {
     [Range(0, 1f)] public float volume = 1f;
     public AudioClip fire;
-    public AudioClip destroyWeapon;
 
-    public void PlayShootingClip(AudioSource audioSource)
+    public void PlayShootingSound(AudioSource audioSource)
     {
         audioSource.PlayOneShot(fire, volume);
     }
