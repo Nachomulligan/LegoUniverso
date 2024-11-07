@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour, IDamageable, IDeathLogic
     [SerializeField] private Transform target;
     [SerializeField] private LayerMask playerLayer;
     private bool isChasing = false;
+    private BoxCollider triggerBox;
     
     public HealthComponent healthComponent;
 
@@ -19,6 +21,8 @@ public class Enemy : MonoBehaviour, IDamageable, IDeathLogic
     {
         healthComponent = GetComponent<HealthComponent>();
         audioManager = GameManager.Instance.audioManager;
+
+        triggerBox = GetComponentInChildren<BoxCollider>();
     }
 
     private void Update()
@@ -29,6 +33,11 @@ public class Enemy : MonoBehaviour, IDamageable, IDeathLogic
         }
     }
 
+    public void SetTriggerSize(Vector3 size)
+    {
+        triggerBox.size = size;
+    }
+    
     private void PlayDMGSound()
     {
         if (dmgSound >= 0 && dmgSound < audioManager.soundEffects.Count)

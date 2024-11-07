@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour, IEnemyFactory
 {
     [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private Vector3 triggerBoxSize = new Vector3(10f, 10f, 10f);
+    
     private ObjectPool<Enemy> enemyPool;
 
     private void Awake()
@@ -22,6 +24,8 @@ public class EnemyFactory : MonoBehaviour, IEnemyFactory
     {
         Enemy enemy = enemyPool.GetFromPool(position, rotation);
         enemy.healthComponent.HealToMax();
+        enemy.SetTriggerSize(triggerBoxSize);
+        
         return enemy.gameObject;
     }
 
