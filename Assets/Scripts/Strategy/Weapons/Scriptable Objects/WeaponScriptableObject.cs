@@ -34,7 +34,11 @@ public class WeaponScriptableObject : ScriptableObject
     {
         currentAmmo = weaponAmmo.maxAmmo;
         bulletFactory = new BulletFactory();
-        bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
+        
+        if (bulletConfig != null && bulletConfig.bulletPrefab != null)
+        {
+            bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
+        }
     }
 
     public void ReloadWeapon()
