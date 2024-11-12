@@ -12,10 +12,8 @@ public class Node : MonoBehaviour
     public Node this[int index] => connections[index];
     private void OnDrawGizmos()
     {
-        // Establece el color del gizmo a rojo
         Gizmos.color = Color.red;
 
-        // Dibuja un gizmo esférico en la posición del nodo
-        Gizmos.DrawSphere(transform.position, 1f); // El tamaño del gizmo es 0.3f, puedes ajustarlo
+        Gizmos.DrawSphere(transform.position, 1f); 
     }
 }

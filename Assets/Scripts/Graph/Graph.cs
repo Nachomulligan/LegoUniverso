@@ -48,7 +48,6 @@ public class Graph : MonoBehaviour
             {
                 if (!unvisited.Contains(neighbor)) continue;
 
-                // Cada conexión tiene un peso de 1
                 int tentativeDistance = distances[current] + 1;
                 if (tentativeDistance < distances[neighbor])
                 {
