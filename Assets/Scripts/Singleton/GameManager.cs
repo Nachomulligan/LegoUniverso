@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
             }
             else if (newStatus is GameplayState)
             {
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("Level 2");
                 audioManager.PlayBGM(1);
             }
             else if (newStatus is VictoryState)
