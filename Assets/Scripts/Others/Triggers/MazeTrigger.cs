@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeTrigger : MonoBehaviour
@@ -9,6 +6,6 @@ public class MazeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        enemy.ActivatePlayerInMaze(true);
+        enemy.SetPlayerInMaze(true);
     }
 }

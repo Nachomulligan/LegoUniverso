@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +10,6 @@ public class MazeEnemy : MonoBehaviour
     [SerializeField] private float speed = 2f; 
     [SerializeField] private float nodeReachThreshold = 0.1f;
     [SerializeField] private float pathUpdateInterval = 0.5f;
-    [SerializeField] private GameObject playerTrigger;
 
     private PathFinding path;
     private int currentNodeIndex;
@@ -33,7 +31,7 @@ public class MazeEnemy : MonoBehaviour
         }
     }
 
-    public void ActivatePlayerInMaze(bool value)
+    public void SetPlayerInMaze(bool value)
     {
         isPlayerInMaze = value;
     }
@@ -60,12 +58,14 @@ public class MazeEnemy : MonoBehaviour
     {
         while (true)
         {
-            Node playerNode = FindClosestNodeToPlayer();
-            if (path == null || playerNode != path.Nodes[path.Nodes.Count - 1])
+            if (isPlayerInMaze)
             {
-                path = graph.GetShortestPath(currentNode, playerNode);
-                
-                currentNodeIndex = FindClosestNodeInPath();
+                Node playerNode = FindClosestNodeToPlayer();
+                if (path == null || playerNode != path.Nodes[path.Nodes.Count - 1])
+                {
+                    path = graph.GetShortestPath(currentNode, playerNode);
+                    currentNodeIndex = FindClosestNodeInPath();
+                }
             }
 
             yield return new WaitForSeconds(pathUpdateInterval);
@@ -109,10 +109,5 @@ public class MazeEnemy : MonoBehaviour
             currentNode = targetNode;
             currentNodeIndex++;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        isPlayerInMaze = true;
     }
 }
