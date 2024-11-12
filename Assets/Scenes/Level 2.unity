@@ -5766,6 +5766,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 622678370149142533, guid: 4f20787849930054f9a3efe347c71bad,
+        type: 3}
+      propertyPath: connections.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 622678370149142533, guid: 4f20787849930054f9a3efe347c71bad,
+        type: 3}
+      propertyPath: connections.Array.data[1]
+      value: 
+      objectReference: {fileID: 1343020647}
     - target: {fileID: 719388825506967121, guid: 4f20787849930054f9a3efe347c71bad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6670,6 +6680,18 @@ PrefabInstance:
 --- !u!114 &1343020646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1530795137405883823, guid: 4f20787849930054f9a3efe347c71bad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1343020645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba28d7da505c254fbc4bb6a0fea2c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1343020647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1720483843439544771, guid: 4f20787849930054f9a3efe347c71bad,
     type: 3}
   m_PrefabInstance: {fileID: 1343020645}
   m_PrefabAsset: {fileID: 0}
