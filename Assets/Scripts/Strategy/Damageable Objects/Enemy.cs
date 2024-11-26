@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour, IDamageable, IDeathLogic
     {
         healthComponent = GetComponent<HealthComponent>();
         audioManager = GameManager.Instance.audioManager;
-
+        
         triggerBox = GetComponentInChildren<BoxCollider>();
     }
 

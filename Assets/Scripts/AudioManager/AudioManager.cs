@@ -11,7 +11,21 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     public AudioSource sfx;
     public List<AudioClip> soundEffects;
-
+    
+    private void Awake()
+    {
+        if (FindObjectOfType<AudioManager>() != null && FindObjectOfType<AudioManager>() != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        
+        if (music == null) music = GetComponent<AudioSource>();
+    }
+    
     public void PlayBGM(int bgmIndex)
     {
         if (bgmIndex < 0 || bgmIndex >= bgTracks.Count) return;

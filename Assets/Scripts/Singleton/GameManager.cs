@@ -42,12 +42,6 @@ public class GameManager : MonoBehaviour
         }
 
         audioManager = FindObjectOfType<AudioManager>();
-        
-        if (audioManager == null)
-        {
-            GameObject audioManagerObject = new GameObject("AudioManager");
-            audioManager = audioManagerObject.AddComponent<AudioManager>();
-        }
     }
 
     private void Update()
@@ -68,7 +62,7 @@ public class GameManager : MonoBehaviour
             }
             else if (newStatus is GameplayState)
             {
-                SceneManager.LoadScene("Level 2");
+                SceneManager.LoadScene("Level 1");
                 audioManager.PlayBGM(1);
             }
             else if (newStatus is VictoryState)

@@ -7,18 +7,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private BoxCollider spawnArea;
     private bool isSpawning = false;
-
-    private BossEnemy bossEnemy;
+    
     private EnemyFactory enemyFactory;
     
     private void Start()
     {
-        bossEnemy = FindObjectOfType<BossEnemy>();
-        if (bossEnemy != null)
-        {
-            bossEnemy.OnBossKilled += StopSpawning;
-        }
-
         enemyFactory = FindObjectOfType<EnemyFactory>();
     }
 
@@ -56,12 +49,6 @@ public class EnemySpawner : MonoBehaviour
     public void StopSpawning()
     {
         isSpawning = false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(spawnArea.transform.position, spawnArea.size);
     }
 }
 

@@ -14,18 +14,20 @@ public class ObjectPool<T> where T : MonoBehaviour
     public T GetFromPool(Vector3 position, Quaternion rotation)
     {
         T item;
-        if (pool.Count > 0)
+        while (pool.Count > 0)
         {
             item = pool.Pop();
-            item.transform.position = position;
-            item.transform.rotation = rotation;
-            item.gameObject.SetActive(true);
+            
+            if (item != null && item.gameObject != null && !item.gameObject.activeInHierarchy)
+            {
+                item.transform.position = position;
+                item.transform.rotation = rotation;
+                item.gameObject.SetActive(true);
+                return item;
+            }
         }
-        else
-        {
-            item = Object.Instantiate(prefab, position, rotation);
-        }
-
+        
+        item = Object.Instantiate(prefab, position, rotation);
         return item;
     }
 

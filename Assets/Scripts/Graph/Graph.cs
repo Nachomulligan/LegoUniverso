@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+
 public class Graph : MonoBehaviour, IGraph<Node>
 {
-    [SerializeField]
-    private List<Node> nodes = new List<Node>();
+    [SerializeField] private List<Node> nodes = new List<Node>();
 
     public List<Node> Nodes => nodes;
 
@@ -45,7 +45,7 @@ public class Graph : MonoBehaviour, IGraph<Node>
 
     public void InitializeGraph()
     {
-        nodes.Clear(); 
+        nodes.Clear();
         Node[] sceneNodes = FindObjectsOfType<Node>();
 
         foreach (Node node in sceneNodes)

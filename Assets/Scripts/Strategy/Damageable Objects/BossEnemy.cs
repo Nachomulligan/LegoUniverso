@@ -2,13 +2,14 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossEnemy : MonoBehaviour, IDamageable, IDeathLogic
 {
     public HealthComponent healthComponent;
+    [SerializeField] private string scene = "Level 1";
 
     private float currentHealth;
-    public event Action OnBossKilled;
     
     private void Awake()
     {
@@ -23,8 +24,7 @@ public class BossEnemy : MonoBehaviour, IDamageable, IDeathLogic
     public void Die()
     {
         Destroy(gameObject);
-        OnBossKilled?.Invoke();
-        GameManager.Instance.ChangeGameStatus(new VictoryState(), true);
+        SceneManager.LoadScene(scene);
     }
 
 }

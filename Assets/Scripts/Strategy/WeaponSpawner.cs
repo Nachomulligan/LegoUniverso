@@ -14,7 +14,7 @@ public class WeaponSpawner : MonoBehaviour, IInteractable
     
     private void Awake()
     {
-        audioManager = GameManager.Instance.audioManager;
+        audioManager = FindObjectOfType<AudioManager>();
     }
     
     private void PlayInteractionSound()

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d92056b58a28cd4aaeed7ddb4dec5bb, type: 3}
   m_Name: Minigun WeaponAmmo
   m_EditorClassIdentifier: 
-  maxAmmo: 50
+  maxAmmo: 25
   ammoSpentPerShot: 1
   bulletConfig: {fileID: 11400000, guid: a8041bfe7e38ff0449b3ca1a9a9a2671, type: 2}

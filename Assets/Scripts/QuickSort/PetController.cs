@@ -1,25 +1,29 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PetController : MonoBehaviour, IInteractable
 {
     public InteractPriority InteractPriority => InteractPriority.High;
-    
+
     private List<Enemy> detectedEnemies = new List<Enemy>();
     private Transform character;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] ShootingBehavior shootingBehavior;
     private bool canShoot = false;
-    
+
     [SerializeField] private int interactionSound;
     private AudioManager audioManager;
-
+    
     private void Awake()
     {
+        Character playerComponent = FindObjectOfType<Character>();
         audioManager = GameManager.Instance.audioManager;
+        if (playerComponent != null)
+        {
+            character = playerComponent.transform;
+        }
     }
-    
+
     private void PlayInteractionSound()
     {
         if (interactionSound >= 0 && interactionSound < audioManager.soundEffects.Count)
@@ -27,12 +31,11 @@ public class PetController : MonoBehaviour, IInteractable
             audioManager.PlaySFX(interactionSound);
         }
     }
-    
+
     public void Interact()
     {
         transform.SetParent(character.transform);
-        transform.localPosition = new Vector3(0, 3f, 0);
-        PlayInteractionSound();
+        transform.localPosition = new Vector3(0, 2f, 0);
         
         Collider petCollider = GetComponent<Collider>();
         Collider characterCollider = character.GetComponent<Collider>();
@@ -43,26 +46,26 @@ public class PetController : MonoBehaviour, IInteractable
 
         canShoot = true;
     }
-
-    private void Start()
+    
+    private IEnumerator<WaitForSeconds> EnableShootingAfterDelay(float delay)
     {
-        Character playerComponent = FindObjectOfType<Character>();
-        if (playerComponent != null)
-        {
-            character = playerComponent.transform;
-        }
+        yield return new WaitForSeconds(delay);
+        canShoot = true;
     }
     
     private void Update()
     {
-        if (canShoot && detectedEnemies.Count > 0)
+        if (canShoot)
         {
-            Enemy closestEnemy = FindClosestEnemy();
-            if (closestEnemy != null)
+            if (detectedEnemies.Count > 0)
             {
-                LookAtEnemy(closestEnemy);
-                Vector3 shootDirection = (closestEnemy.transform.position - transform.position).normalized;
-                shootingBehavior.Shoot(shootDirection);
+                Enemy closestEnemy = FindClosestEnemy();
+                if (closestEnemy != null)
+                {
+                    LookAtEnemy(closestEnemy);
+                    Vector3 shootDirection = (closestEnemy.transform.position - transform.position).normalized;
+                    shootingBehavior.Shoot(shootDirection);
+                }
             }
         }
     }
@@ -102,16 +105,15 @@ public class PetController : MonoBehaviour, IInteractable
     
         return enemiesArray[0];
     }
-
-
+    
     private void LookAtEnemy(Enemy enemy)
     {
         Vector3 direction = (enemy.transform.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
     }
-    
-    private void QuickSort(Enemy[] arr, int left, int right)
+
+    public void QuickSort(Enemy[] arr, int left, int right)
     {
         if (left < right)
         {
@@ -121,10 +123,9 @@ public class PetController : MonoBehaviour, IInteractable
         }
     }
 
-    private int Partition(Enemy[] arr, int left, int right)
+    public int Partition(Enemy[] arr, int left, int right)
     {
         float pivotDistance = Vector3.Distance(transform.position, arr[(left + right) / 2].transform.position);
-        
         while (true)
         {
             while (Vector3.Distance(transform.position, arr[left].transform.position) < pivotDistance && left < right)

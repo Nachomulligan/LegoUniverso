@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305134550290921056}
-  - component: {fileID: 7129008035325628907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawnPosition (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,30 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2410518945954034135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7129008035325628907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457205269719108779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618ab5e2e1ca92e419133841ca3bf7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arbol: {fileID: 0}
-  gameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnPoints:
-  - {fileID: 6597076372266509858}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  delayBetweenSpawns: 1
 --- !u!1 &2186241312349264319
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,8 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8589464374271352146}
-  - component: {fileID: 4690480686523324329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawnPosition (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,30 +62,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2410518945954034135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4690480686523324329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2186241312349264319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618ab5e2e1ca92e419133841ca3bf7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arbol: {fileID: 0}
-  gameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnPoints:
-  - {fileID: 6597076372266509858}
-  - {fileID: 305134550290921056}
-  - {fileID: 8589464374271352146}
-  - {fileID: 3734511932955545565}
-  delayBetweenSpawns: 1
 --- !u!1 &2491818695756649835
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,8 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734511932955545565}
-  - component: {fileID: 1326698307443705343}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawnPosition (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,30 +93,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2410518945954034135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1326698307443705343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491818695756649835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618ab5e2e1ca92e419133841ca3bf7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arbol: {fileID: 0}
-  gameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnPoints:
-  - {fileID: 6597076372266509858}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  delayBetweenSpawns: 1
 --- !u!1 &7792902491648186086
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,8 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6597076372266509858}
-  - component: {fileID: 4497701626407235457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,30 +124,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2410518945954034135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4497701626407235457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7792902491648186086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618ab5e2e1ca92e419133841ca3bf7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arbol: {fileID: 0}
-  gameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnPoints:
-  - {fileID: 6597076372266509858}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  delayBetweenSpawns: 1
 --- !u!1 &8257162573054572221
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +135,7 @@ GameObject:
   - component: {fileID: 2410518945954034135}
   - component: {fileID: 8179637263216364755}
   - component: {fileID: 7445434922821993577}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TreeBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}

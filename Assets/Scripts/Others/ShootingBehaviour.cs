@@ -14,13 +14,22 @@ public class ShootingBehavior : MonoBehaviour
 
     private void Awake()
     {
-        bulletFactory = new BulletFactory();
-        bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
         audioManager = GameManager.Instance.audioManager;
+        
+        if (bulletConfig != null && bulletConfig.bulletPrefab != null)
+        {
+            bulletFactory = new BulletFactory();
+            bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
+        }
     }
     
     public void Shoot(Vector3 direction)
     {
+        if (bulletConfig == null || bulletConfig.bulletPrefab == null)
+        {
+            return;
+        }
+        
         if (Time.time >= fireRate + lastShootTime)
         {
             lastShootTime = Time.time;
