@@ -19,7 +19,7 @@ public class ShootingBehavior : MonoBehaviour
         if (bulletConfig != null && bulletConfig.bulletPrefab != null)
         {
             bulletFactory = new BulletFactory();
-            bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
+            bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>(), bulletConfig);
         }
     }
     
@@ -33,7 +33,7 @@ public class ShootingBehavior : MonoBehaviour
         if (Time.time >= fireRate + lastShootTime)
         {
             lastShootTime = Time.time;
-            GameObject bullet = bulletFactory.CreateBullet(bulletConfig, shootPoint.position, direction);
+            GameObject bullet = bulletFactory.Create(shootPoint.position, Quaternion.LookRotation(direction));
             PlayShootSound();
         }
     }

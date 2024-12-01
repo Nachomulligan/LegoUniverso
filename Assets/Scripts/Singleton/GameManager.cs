@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public string currentLevel { get; private set; } = "Level 1";
     public GameObject pauseMenu;
     private StateMachine stateMachine = new StateMachine();
+    
     private static GameManager instance;
 
     public AudioManager audioManager;
@@ -28,20 +30,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            ChangeGameStatus(new MainMenuState(), true);
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        audioManager = FindObjectOfType<AudioManager>();
+        ServiceLocator.Instance.SetService<AsyncScenesManager>(new AsyncScenesManager());
+        ServiceLocator.Instance.SetService<EnemyFactory>(new EnemyFactory());
+        ServiceLocator.Instance.SetService<EnemySpawner>(new EnemySpawner());
+        audioManager = ServiceLocator.Instance.GetService<AudioManager>();
+        ChangeGameStatus(new MainMenuState());
     }
 
     private void Update()
@@ -49,49 +44,23 @@ public class GameManager : MonoBehaviour
         stateMachine.Update(this);
     }
 
-    public void ChangeGameStatus(GameState newStatus, bool loadScene)
+    public void ChangeGameStatus(GameState newStatus)
     {
         stateMachine.ChangeState(newStatus, this);
-
-        if (loadScene)
-        {
-            if (newStatus is MainMenuState)
-            {
-                SceneManager.LoadScene("Menu");
-                audioManager.PlayBGM(0);
-            }
-            else if (newStatus is GameplayState)
-            {
-                SceneManager.LoadScene("Level 1");
-                audioManager.PlayBGM(1);
-            }
-            else if (newStatus is VictoryState)
-            {
-                SceneManager.LoadScene("VictoryScene");
-                audioManager.PlayBGM(2);
-            }
-            else if (newStatus is DefeatState)
-            {
-                SceneManager.LoadScene("DefeatScene");
-                audioManager.PlayBGM(3);
-            }
-        }
     }
 
-    public void ResumeGame()
+    public void SetCurrentLevel(string levelName)
     {
-        Time.timeScale = 1f;
+        currentLevel = levelName;
+    }
+
+    public void DeactivatePauseOverlay()
+    {
         pauseMenu.SetActive(false);
     }
 
-    public void PauseGame()
+    public void ActivePauseOverlay()
     {
-        Time.timeScale = 0f;
         pauseMenu.SetActive(true);
-    }
-
-    public void CompletePuzzle()
-    {
-        ChangeGameStatus(new GameplayState(), false);
     }
 }

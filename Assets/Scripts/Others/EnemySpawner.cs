@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private BoxCollider spawnArea;
-    private bool isSpawning = false;
-    
+    [SerializeField] private Enemy enemyPrefab;
+    [SerializeField] private Vector3 triggerBoxSize = new Vector3(10f, 10f, 10f);
     private EnemyFactory enemyFactory;
-    
+    private bool isSpawning = false;
+
     private void Start()
     {
-        enemyFactory = FindObjectOfType<EnemyFactory>();
+        enemyFactory = ServiceLocator.Instance.GetService<EnemyFactory>();
+        enemyFactory.Initialize(enemyPrefab, triggerBoxSize);
     }
 
     public void StartSpawning()
@@ -29,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         while (isSpawning)
         {
             Vector3 randomPosition = GetRandomPositionInArea();
-            enemyFactory.CreateEnemy(randomPosition, Quaternion.identity);
+            enemyFactory.Create(randomPosition, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnInterval);
         }

@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletFactory : IBulletFactory
+public class BulletFactory : AbstractFactory<Bullet>
 {
     private BulletPool bulletPool;
-    
-    public void Initialize(Bullet bulletPrefab)
+    private BulletConfiguration bulletConfig;
+
+    public void Initialize(Bullet bulletPrefab, BulletConfiguration config)
     {
         bulletPool = new BulletPool(bulletPrefab);
+        bulletConfig = config;
     }
-    
-    public GameObject CreateBullet(BulletConfiguration bulletConfig, Vector3 position, Vector3 direction)
+
+    public override GameObject Create(Vector3 position, Quaternion rotation)
     {
-        Bullet bullet = bulletPool.GetFromPool(position, Quaternion.LookRotation(direction));
-        bullet.Initialize(bulletConfig, this, direction);
+        Bullet bullet = bulletPool.GetFromPool(position, rotation);
+        bullet.Initialize(bulletConfig, this, rotation * Vector3.forward);
         return bullet.gameObject;
     }
-    
-    public void ReturnToPool(Bullet bullet)
+
+    public void ReturnToPool(GameObject obj)
     {
+        Bullet bullet = obj.GetComponent<Bullet>();
         bulletPool.ReturnToPool(bullet);
     }
 }
+

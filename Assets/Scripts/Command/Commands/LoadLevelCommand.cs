@@ -7,9 +7,18 @@ using UnityEngine.SceneManagement;
 public class LoadLevelCommand : CommandSO
 {
     [SerializeField] private string levelName;
+    [SerializeField] private string newLevel = "Level 2";
     
     public override void Execute()
     {
-        SceneManager.LoadScene(levelName);
+        Scene currentScene = SceneManager.GetSceneByName(levelName);
+        
+        if (currentScene.isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(currentScene);
+        }
+        
+        SceneManager.LoadScene(newLevel, LoadSceneMode.Additive);
+        GameManager.Instance.SetCurrentLevel(newLevel);
     }
 }

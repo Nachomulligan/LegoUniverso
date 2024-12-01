@@ -42,13 +42,13 @@ public class Bullet : MonoBehaviour
         
         if (bulletConfig.destroyOnContact)
         {
-            bulletFactory.ReturnToPool(this);
+            bulletFactory.ReturnToPool(this.gameObject);
         }
     }
     
     private IEnumerator DestroyBulletAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        bulletFactory.ReturnToPool(this);
+        bulletFactory.ReturnToPool(this.gameObject);
     }
 }

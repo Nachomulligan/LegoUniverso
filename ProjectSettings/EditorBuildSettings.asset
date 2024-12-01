@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 4bae413c644249f43a6ebbc897140e84
+  - enabled: 1
+    path: Assets/Scenes/Permanent Scene.unity
+    guid: 28e8f716b4a63314cbf861918b6f8e83
   - enabled: 0
     path: Assets/Scenes/Maze.unity
     guid: 3c8ad1e67ad2a154bbe9b5b3b8e714f4

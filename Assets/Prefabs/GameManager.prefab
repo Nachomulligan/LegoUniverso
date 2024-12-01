@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 3526819077727854723}
+  levelManager: {fileID: 0}
+  sceneList: {fileID: 11400000, guid: 05cea8f15027f1248b9e824bd7da4f82, type: 2}
   audioManager: {fileID: 0}
 --- !u!1 &3162829877103404266
 GameObject:

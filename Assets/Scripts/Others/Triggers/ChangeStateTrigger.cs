@@ -10,7 +10,7 @@ public class ChangeStateTrigger : MonoBehaviour
     {
         if ((playerLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            GameManager.Instance.ChangeGameStatus(new VictoryState(), true);
+            GameManager.Instance.ChangeGameStatus(new VictoryState());
         }
     }
 }

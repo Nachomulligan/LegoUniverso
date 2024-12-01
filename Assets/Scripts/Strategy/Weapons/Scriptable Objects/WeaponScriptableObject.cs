@@ -33,11 +33,11 @@ public class WeaponScriptableObject : ScriptableObject
     private void OnEnable()
     {
         currentAmmo = weaponAmmo.maxAmmo;
-        bulletFactory = new BulletFactory();
         
         if (bulletConfig != null && bulletConfig.bulletPrefab != null)
         {
-            bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>());
+            bulletFactory = new BulletFactory();
+            bulletFactory.Initialize(bulletConfig.bulletPrefab.GetComponent<Bullet>(), bulletConfig);
         }
     }
 
@@ -124,8 +124,7 @@ public class WeaponScriptableObject : ScriptableObject
         shootDirection.Normalize();
     
         Vector3 spawnPosition = model.transform.TransformPoint(bulletSpawnPoint);
-        
-        GameObject bullet = bulletFactory.CreateBullet(bulletConfig, spawnPosition, shootDirection);
+        GameObject bullet = bulletFactory.Create(spawnPosition, Quaternion.LookRotation(shootDirection));
     }
     
     private IEnumerator BurstFire()

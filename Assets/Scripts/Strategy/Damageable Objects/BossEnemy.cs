@@ -24,7 +24,9 @@ public class BossEnemy : MonoBehaviour, IDamageable, IDeathLogic
     public void Die()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene(scene);
+        SceneManager.UnloadSceneAsync("Level 1");
+        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+        GameManager.Instance.SetCurrentLevel("Level 2");
     }
 
 }

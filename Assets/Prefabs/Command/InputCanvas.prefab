@@ -242,13 +242,13 @@ MonoBehaviour:
 
     ka = kill all enemies
 
-    loadlevel(level
-    number) = go to level
+    tp(current
+    level)(desired level) = go to level
 
     spawn(weapon name) = spawnweapon
 
-    spawnpet = spawn
-    ship pet'
+    spawnpet
+    = spawn ship pet'
 --- !u!1 &8567748206826495078
 GameObject:
   m_ObjectHideFlags: 0

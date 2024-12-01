@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc66e0d24a48e648bfd21b2b7e574b0, type: 3}
+  m_Name: BlasterAudioSO
+  m_EditorClassIdentifier: 
+  volume: 1
+  play: {fileID: 8300000, guid: 67c10bdd01d33b44a96943d34bed00aa, type: 3}

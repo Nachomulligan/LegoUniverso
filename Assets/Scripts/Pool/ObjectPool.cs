@@ -36,4 +36,16 @@ public class ObjectPool<T> where T : MonoBehaviour
         item.gameObject.SetActive(false);
         pool.Push(item);
     }
+    
+    public void ClearPool()
+    {
+        if (pool.Count > 0)
+        {
+            T item = pool.Pop();
+            if (item != null)
+            {
+                Object.Destroy(item.gameObject);
+            }
+        }
+    }
 }

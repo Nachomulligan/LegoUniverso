@@ -20,7 +20,7 @@ public class PuzzleState : GameState
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            gameManager.ChangeGameStatus(new GameplayState(), false);
+            gameManager.ChangeGameStatus(new GameplayState());
         }
     }
 }

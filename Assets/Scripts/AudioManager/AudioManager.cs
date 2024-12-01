@@ -10,20 +10,12 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     public AudioSource sfx;
-    public List<AudioClip> soundEffects;
+    public List<AudioSO> soundEffects;
     
     private void Awake()
     {
-        if (FindObjectOfType<AudioManager>() != null && FindObjectOfType<AudioManager>() != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        
         if (music == null) music = GetComponent<AudioSource>();
+        ServiceLocator.Instance.SetService(this);
     }
     
     public void PlayBGM(int bgmIndex)
@@ -36,6 +28,6 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(int sfxIndex)
     {
         if (sfxIndex < 0 || sfxIndex >= soundEffects.Count) return;
-        sfx.PlayOneShot(soundEffects[sfxIndex]);
+        soundEffects[sfxIndex].PlaySound(sfx);
     }
 }

@@ -21,7 +21,7 @@ public class CommandInput : MonoBehaviour
     public void OnSubmit()
     {
         string input = inputField.text;
-        Debug.Log("Input recibido: " + input);
+        Debug.Log("Input received: " + input);
         commandManager.ExecuteCommand(input);
         inputField.text = "";
         inputField.Select();
