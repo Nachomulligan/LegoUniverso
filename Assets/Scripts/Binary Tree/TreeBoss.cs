@@ -34,7 +34,7 @@ public class TreeBoss : MonoBehaviour, IDamageable, IDeathLogic
 
     public void ActivateSpawn()
     {
-        arbol.InstanciarLevelOrder(arbol.raiz, spawnPoints, delayBetweenSpawns);
+        arbol.InstanciarPreOrder(arbol.raiz, spawnPoints, delayBetweenSpawns);
     }
     
     public void TakeDamage(float damage)
