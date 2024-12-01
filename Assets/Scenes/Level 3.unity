@@ -8823,7 +8823,7 @@ PrefabInstance:
         ka = kill
         all enemies
 
-        loadlevel(level number) = go to level
+        tp(current level)(desired level) = go to level
 
         spawn(weapon
         name) = spawnweapon
@@ -8943,7 +8943,7 @@ PrefabInstance:
     - target: {fileID: 8946752286175497749, guid: 82e88ebbd3ec2824e95eb1ff78025d87,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8286,7 +8286,7 @@ PrefabInstance:
         ka = kill
         all enemies
 
-        loadlevel(level number) = go to level
+        tp(current level)(desired level) = go to level
 
         spawn(weapon
         name) = spawnweapon

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ServiceLocator.Instance.SetService<AsyncScenesManager>(new AsyncScenesManager());
-        ServiceLocator.Instance.SetService<EnemyFactory>(new EnemyFactory());
+        ServiceLocator.Instance.SetService<EnemyFactory>(new EnemyFactory()); //The first time the project is initialized an error appears, the second time it disappears. It's because of how Unity initializes the project
         ServiceLocator.Instance.SetService<EnemySpawner>(new EnemySpawner());
         audioManager = ServiceLocator.Instance.GetService<AudioManager>();
         ChangeGameStatus(new MainMenuState());
