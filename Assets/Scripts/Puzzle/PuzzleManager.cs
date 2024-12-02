@@ -9,7 +9,7 @@ public class PuzzleManager : MonoBehaviour
     private List<int> correctSequence = new List<int> { 1, 2, 3 };
     private Queue<int> playerSequence = new Queue<int>();
     [SerializeField] private PuzzleSpawner puzzleSpawner;
-
+    [SerializeField] private Door door;
 
     public void AddToSequence(int number)
     {
@@ -38,6 +38,7 @@ public class PuzzleManager : MonoBehaviour
         }
 
         Debug.Log("You won!");
+        UnlockDoor();
     }
 
     private void TriggerPuzzleSpawner()
@@ -56,6 +57,11 @@ public class PuzzleManager : MonoBehaviour
     private void ResetSequence()
     {
         playerSequence.Clear();
+    }
+    
+    private void UnlockDoor()
+    {
+        door.PuzzleWin();
     }
 
 }
