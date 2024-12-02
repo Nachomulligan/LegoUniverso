@@ -38,7 +38,6 @@ public class PuzzleManager : MonoBehaviour
         }
 
         Debug.Log("You won!");
-
     }
 
     private void TriggerPuzzleSpawner()
