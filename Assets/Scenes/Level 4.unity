@@ -3662,7 +3662,7 @@ PrefabInstance:
     - target: {fileID: 5594559267795311662, guid: 21e95bf44742c324aac4631f2991785b,
         type: 3}
       propertyPath: dialogue
-      value: Last sop, at the end of this place is our escape ship.
+      value: Last stop, at the end of this place is our escape ship.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
